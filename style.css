@@ -1,0 +1,438 @@
+.block {
+    width: 200px;
+    height: 200px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.circle {
+    width: 32px;
+    height: 32px;
+}
+
+.fs-7 {
+    font-size: 0.875rem;
+}
+
+.navbarImg {
+    width: 50px;
+}
+
+/* 以下開始為自定義 */
+.Yunxing-fa-bounce {
+    animation-duration: 1.2s;
+}
+
+.Yunxing-navbarText {
+    font-family: 'Anton', sans-serif;
+}
+
+.Yunxing-btn-circl {
+    width: 50px;
+    height: 50px;
+    border-radius: 60px;
+    font-size: 20px;
+    text-align: center;
+    background-color: transparent;
+    color: rgb(223, 223, 223);
+}
+
+.Yunxiang-navigation-btn {
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.Yunxiang-navigation-btn:hover {
+    cursor: pointer;
+    color: rgb(150, 149, 149);
+}
+
+.Yunxiang-navigation-btn:active {
+    color: rgb(36, 36, 36);
+}
+
+.Yunxiang-nav-link:hover {
+    color: #fff;
+    animation: shake 0.6s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+}
+
+@keyframes shake {
+    0% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    25% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(-2px, 0, 0);
+    }
+}
+
+.Yunxiang_dropdown-item {
+    border-bottom: 1px solid rgb(211, 209, 209);
+}
+
+
+.Yunxiang-btn-opacity:hover {
+    opacity: 0.8;
+}
+
+/* 圖卡 [Begin] */
+@import url('https://fonts.googleapis.com/css?family=Lato:200');
+
+.animated-box {
+    font-family: 'Lato';
+    text-align: center;
+    border-radius: 8px;
+}
+
+.animated-box {
+    position: relative;
+}
+
+.animated-box:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    background: linear-gradient(120deg, #00F260, #0575E6, #00F260);
+    background-size: 300% 300%;
+    clip-path: polygon(0% 100%, 15px 100%, 15px 15px, calc(100% - 15px) 15px, calc(100% - 15px) calc(100% - 15px), 15px calc(100% - 15px), 15px 100%, 100% 100%, 100% 0%, 0% 0%);
+    /* border-width: 1000px; */
+}
+
+.animated-box.in:after {
+    animation: frame-enter 1s forwards ease-in-out reverse, gradient-animation 4s ease-in-out infinite;
+}
+
+/* motion */
+@keyframes gradient-animation {
+    0% {
+        background-position: 15% 0%;
+    }
+
+    50% {
+        background-position: 85% 100%;
+    }
+
+    100% {
+        background-position: 15% 0%;
+    }
+}
+
+@keyframes frame-enter {
+    0% {
+        clip-path: polygon(0% 100%, 15px 100%, 15px 15px, calc(100% - 15px) 15px, calc(100% - 15px) calc(100% - 15px), 15px calc(100% - 15px), 15px 100%, 100% 100%, 100% 0%, 0% 0%);
+    }
+
+    25% {
+        clip-path: polygon(0% 100%, 15px 100%, 15px 15px, calc(100% - 15px) 15px, calc(100% - 15px) calc(100% - 15px), calc(100% - 15px) calc(100% - 15px), calc(100% - 15px) 100%, 100% 100%, 100% 0%, 0% 0%);
+    }
+
+    50% {
+        clip-path: polygon(0% 100%, 15px 100%, 15px 15px, calc(100% - 15px) 15px, calc(100% - 15px) 15px, calc(100% - 15px) 15px, calc(100% - 15px) 15px, calc(100% - 15px) 15px, 100% 0%, 0% 0%);
+    }
+
+    75% {
+        -webkit-clip-path: polygon(0% 100%, 15px 100%, 15px 15px, 15px 15px, 15px 15px, 15px 15px, 15px 15px, 15px 15px, 15px 0%, 0% 0%);
+    }
+
+    100% {
+        -webkit-clip-path: polygon(0% 100%, 15px 100%, 15px 100%, 15px 100%, 15px 100%, 15px 100%, 15px 100%, 15px 100%, 15px 100%, 0% 100%);
+    }
+}
+
+/* 圖卡 [End] */
+
+/* 背景 [Start] */
+body {
+    background-image: url('https://www.marketplace.org/wp-content/uploads/2021/10/stockmarket.jpg?fit=2800%2C1575');
+    background-size: cover;
+    -webkit-animation: slidein 10s;
+    animation: slidein 10s;
+
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+}
+
+@-webkit-keyframes slidein {
+    from {
+        background-position: top;
+        background-size: 3000px;
+    }
+
+    to {
+        background-position: -100px 0px;
+        background-size: 2750px;
+    }
+}
+
+@keyframes slidein {
+    from {
+        background-position: top;
+        background-size: 3000px;
+    }
+
+    to {
+        background-position: -100px 0px;
+        background-size: 2750px;
+    }
+
+}
+
+/* 背景[End] */
+
+.login-box form a {
+    font-family: sans-serif;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+}
+
+
+/* 跑馬燈主標題-1 */
+.login-box a span {
+    position: absolute;
+    display: block;
+}
+
+.login-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.login-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+.login-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+.login-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+
+/* 跑馬燈主標題-2 */
+.login-box2 form a {
+    font-family: sans-serif;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #f70324;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+}
+
+
+
+.login-box2 a span {
+    position: absolute;
+    display: block;
+}
+
+.login-box2 a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #f70324);
+    animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.login-box2 a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #f70324);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+.login-box2 a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #f70324);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+.login-box2 a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #f70324);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+
+/* 炫光文字 */
+.nenoBlue {
+    text-align: center;
+    font-size: 7em;
+    margin-bottom: 0;
+    margin-top: 0;
+    line-height: 1;
+    text-decoration: none;
+    color: #fff;
+}
+
+.nenoBlue:nth-child(2) {
+    font-family: Iceland;
+    animation: neon2 1.5s ease-in-out infinite alternate;
+}
+
+
+@keyframes neon2 {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228dff,
+            0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
+    }
+
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
+            0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+    }
+}

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- 主頁簽旁的小Logo -->
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2910/2910311.png">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Trader</title>
+  <!-- BS5 引入 -->
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+  <!-- font-awesome cdn  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- google-font 字型 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+
+  <!-- 自定義css -->
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <!-- BS5 Icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+  <style>
+
+  </style>
+</head>
+
+<body style="background-color: black;">
+
+  <!-- icon整理  [Begin]-->
+  <svg style="display: none;">
+    <!-- tesla-icon -->
+    <symbol id="usetesla">
+      <path fill="#C70B01"
+        d="M12,0C8.472,0.015,4.375,0.609,0,2.35c0,0,0.196,0.524,0.672,1.396C4.674,1.989,8.585,1.436,12,1.46v0.003c3.415-0.03,7.327,0.528,11.328,2.28C23.863,2.775,24,2.347,24,2.347C19.625,0.613,15.528,0.015,12,0L12,0z">
+      </path>
+      <path fill="#C70B01"
+        d="M8.619,5.034L12,24l3.361-18.961c3.199,0,4.208,0.35,4.354,1.79c0,0,2.15-0.803,3.232-2.438c-4.227-1.965-8.472-2.055-8.472-2.055L12,5.362v0.002h-0.004L12,5.362L9.526,2.34c0,0-4.245,0.091-8.471,2.057c1.083,1.635,3.23,2.43,3.23,2.43C4.431,5.388,5.439,5.034,8.619,5.034L8.619,5.034z">
+      </path>
+      <path fill="#AD0A01"
+        d="M12,0C8.472,0.015,4.375,0.609,0,2.35l0,0c0,0,0.196,0.524,0.672,1.396c3.92-1.72,7.753-2.286,11.118-2.286c0.07,0,0.14,0,0.21,0.001v0.003l0,0V0L12,0L12,0z">
+      </path>
+      <path fill="#AD0A01"
+        d="M9.526,2.34c0,0-4.245,0.091-8.471,2.057c1.083,1.635,3.23,2.43,3.23,2.43c0.146-1.439,1.155-1.792,4.335-1.792L12,24V5.362v0.002h-0.004L12,5.362L9.526,2.34L9.526,2.34z">
+      </path>
+    </symbol>
+    <!-- tesla使用
+  <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" id="tesla"
+      class="card-img-top">
+      <use xlink:href="#usetesla" />
+  </svg> -->
+
+    <!-- windows-icon  -->
+    <symbol id="usewindows">
+      <path fill="#6563ff"
+        d="M2.0292,4.83164,10.17746,3.722l.00351,7.85962L2.0366,11.628,2.0292,4.83172Zm8.14437,7.65549.00623,7.86647L2.03551,19.23386,2.03505,12.4344l8.13844.05273Zm.98773-8.91036L21.9651,2v9.48164l-10.8038.08567V3.57677Zm10.8063,8.98435L21.965,22,11.16122,20.47518l-.01511-7.93174Z">
+      </path>
+    </symbol>
+    <!-- windows使用
+  <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24" id="windows"
+      class="card-img-top">
+      <use xlink:href="#usewindows" />
+  </svg> -->
+
+    <!-- Apple-icon  -->
+    <symbol id="useapple">
+      <path fill="#999"
+        d="M273.81 52.973C313.806.257 369.41 0 369.41 0s8.271 49.562-31.463 97.306c-42.426 50.98-90.649 42.638-90.649 42.638s-9.055-40.094 26.512-86.971zM252.385 174.662c20.576 0 58.764-28.284 108.471-28.284 85.562 0 119.222 60.883 119.222 60.883s-65.833 33.659-65.833 115.331c0 92.133 82.01 123.885 82.01 123.885s-57.328 161.357-134.762 161.357c-35.565 0-63.215-23.967-100.688-23.967-38.188 0-76.084 24.861-100.766 24.861C89.33 608.73 0 455.666 0 332.628c0-121.052 75.612-184.554 146.533-184.554 46.105 0 81.883 26.588 105.852 26.588z">
+      </path>
+    </symbol>
+    <!-- Apple使用
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496.255 608.728" id="apple" class="card-img-top">
+       <use xlink:href="#useapple" />
+  </svg> -->
+
+    <!-- intel-icon -->
+    <symbol id="useintel">
+      <path fill="#0e7dc2"
+        d="M270.558 334.834c-112.551 10.383-229.861-5.971-246.292-93.93-8.038-43.361 11.742-89.341 37.946-117.92v-15.261c-47.204 41.399-72.786 93.782-58.051 155.661 18.822 79.367 119.477 124.312 273.155 109.387 60.829-5.895 140.381-25.453 195.724-55.852v-43.152c-50.228 29.927-133.287 54.648-202.482 61.067zm296.497-228.142c-26.697-130.341-279.771-138.604-442.907-39.3V78.36C287.097-5.414 518.232-4.905 539.276 115.163c7.062 39.718-15.312 81.097-55.282 104.923v31.154c48.081-17.636 97.4-74.678 83.061-144.548z">
+      </path>
+      <path fill="#0e7dc2"
+        d="M463.94 87.712h-29.51v131.432c0 15.403 7.446 28.798 29.51 30.938V87.712zM112.561 135.7H82.997l-.016 85.869c0 15.457 7.47 28.838 29.58 30.938V135.7zM82.997 91.71h29.472v27.973H82.997zM289.291 251.147c-23.886 0-33.994-16.602-33.994-32.955V104.178h29.253V135.7h22.031v23.628H284.55v57.057c0 6.668 3.166 10.383 10.119 10.383h11.912v24.38l-17.29-.001M343.12 202.573c0 14.971 9.361 25.973 25.925 25.973 12.979 0 19.376-3.602 26.868-11.002l18.076 17.219c-11.589 11.449-23.731 18.41-45.16 18.41-27.995 0-54.818-15.279-54.818-59.823 0-38.081 23.438-59.607 54.169-59.607 31.24 0 49.193 25.2 49.193 58.279v10.554H343.12m23.778-44.639c-10.013 0-17.706 5.157-20.967 12.113-1.899 4.181-2.595 7.439-2.812 12.577h45.084c-.57-12.577-6.272-24.69-21.305-24.69zM192.013 159.328c8.578 0 12.144 4.241 12.144 11.124v80.866h29.26v-81.036c0-16.42-8.749-34.551-34.443-34.551l-60.441-.031v115.618h29.271v-91.99h24.209zM495.691 111.197c-6.505 0-11.697-5.246-11.697-11.743 0-6.466 5.192-11.742 11.697-11.742 6.473 0 11.788 5.276 11.788 11.742 0 6.497-5.316 11.743-11.788 11.743zm0-21.527c-5.361 0-9.673 4.431-9.673 9.784 0 5.384 4.312 9.737 9.673 9.737 5.36 0 9.811-4.353 9.811-9.737-.001-5.353-4.45-9.784-9.811-9.784zm5.206 16.822h-2.194a.495.495 0 0 1-.446-.293l-2.968-5.045c-.093-.108-.34-.231-.416-.231h-1.359v5.029c0 .248-.171.541-.494.541h-1.979c-.295 0-.494-.293-.494-.541V93.267c0-.742.247-1.047.896-1.14.711-.077 2.565-.17 3.602-.17 3.661 0 5.81 1.078 5.81 4.473v.248c0 2.097-1.035 3.24-2.642 3.75l3.09 5.261a.945.945 0 0 1 .077.372c-.004.199-.111.431-.483.431zm-2.842-10.062c0-1.417-.881-1.865-2.767-1.865h-1.869v4.024c.294 0 1.623.062 1.869.062 1.886 0 2.767-.629 2.767-1.973v-.248z">
+      </path>
+    </symbol>
+    <!-- intel使用
+  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 569.579 375.614" id="intel">
+      <use xlink:href="#useintel" />
+  </svg> -->
+
+    <!-- Nvidia-icon  -->
+    <symbol id="useNvidia">
+      <path fill="#77B900"
+        d="M8.948,18.121v-1.247c-4.84-0.605-6.492-5.983-6.492-5.983s2.164-3.222,6.5-3.561V6.155C4.153,6.547,0,10.642,0,10.642S2.35,17.498,8.948,18.121L8.948,18.121z">
+      </path>
+      <path fill="#77B900"
+        d="M4.275,11.053c0,0,1.016,3.836,4.673,4.495v-1.14C6.89,13.704,6.21,11.274,6.21,11.274s1.202-1.442,2.73-1.255h0.008V8.773c0.218-0.024,0.438-0.038,0.662-0.038l0.133,0.002c2.508,0,4,1.967,4,1.967l-2.04,1.727c-0.91-1.54-1.219-2.217-2.747-2.404v4.38c0.371,0.124,0.76,0.186,1.158,0.186c2.976,0,5.75-3.881,5.75-3.881s-2.571-3.526-6.493-3.401H9.368c-0.149,0.002-0.296,0.008-0.42,0.018v1.44L8.921,8.774l0.023-0.001C6.031,9.095,4.275,11.053,4.275,11.053L4.275,11.053z">
+      </path>
+      <path fill="#77B900"
+        d="M24,4H8.948v2.155l0.424-0.027c5.45-0.186,9.01,4.505,9.01,4.505s-4.08,5.004-8.33,5.004c-0.37,0-0.732-0.035-1.095-0.098v1.335c0.3,0.035,0.61,0.063,0.91,0.063c3.957,0,6.82-2.039,9.592-4.443c0.459,0.374,2.34,1.273,2.729,1.666c-2.633,2.225-8.771,4.015-12.252,4.015c-0.336,0-0.653-0.018-0.971-0.053V20H24V4L24,4z">
+      </path>
+      <path fill="#DEDEDE"
+        d="M.051 10.593H0v.049C0 10.642.017 10.625.051 10.593L.051 10.593zM13.652 10.593h-3.229c.451.387.772.978 1.281 1.839l2.04-1.727C13.744 10.705 13.713 10.664 13.652 10.593L13.652 10.593z">
+      </path>
+      <path fill="#68A100"
+        d="M2.683,10.593H0.051C0.017,10.625,0,10.642,0,10.642l0,0c0,0,2.35,6.856,8.948,7.479v-1.247c-4.84-0.605-6.492-5.983-6.492-5.983S2.532,10.779,2.683,10.593L2.683,10.593z">
+      </path>
+      <path fill="#68A100"
+        d="M6.978,10.593H4.766c-0.321,0.27-0.491,0.459-0.491,0.459s1.016,3.836,4.673,4.495v-1.14l0,0l0,0C6.89,13.704,6.21,11.274,6.21,11.274S6.501,10.926,6.978,10.593L6.978,10.593z M15.772,10.593h-2.12c0.061,0.07,0.092,0.111,0.092,0.111l-2.04,1.727c-0.509-0.861-0.83-1.452-1.281-1.839H8.957v3.815c0.371,0.124,0.76,0.186,1.158,0.186c2.976,0,5.75-3.881,5.75-3.881S15.834,10.67,15.772,10.593L15.772,10.593z">
+      </path>
+      <path fill="#68A100"
+        d="M24,10.593h-5.649c0.021,0.026,0.031,0.04,0.031,0.04s-4.08,5.004-8.33,5.004c-0.37,0-0.732-0.035-1.095-0.098v1.335c0.3,0.035,0.61,0.063,0.91,0.063c3.957,0,6.82-2.039,9.592-4.443c0.459,0.374,2.34,1.273,2.729,1.666c-2.633,2.225-8.771,4.015-12.252,4.015c-0.336,0-0.653-0.018-0.971-0.053V20H24V10.593L24,10.593z">
+      </path>
+    </symbol>
+    <!-- Nivdia使用
+  <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" id="nvidia">
+      <use xlink:href="#useNvidia" />
+  </svg> -->
+
+    <!-- Google-icon -->
+    <symbol id="useGoogle">
+      <path fill="#4285F4"
+        d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027">
+      </path>
+      <path fill="#34A853"
+        d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1">
+      </path>
+      <path fill="#FBBC05"
+        d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782">
+      </path>
+      <path fill="#EB4335"
+        d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251">
+      </path>
+    </symbol>
+    <!-- Google使用
+  <svg xmlns="http://www.w3.org/2000/svg" width="2443" height="2500" preserveAspectRatio="xMidYMid"
+      viewBox="0 0 256 262" id="google">
+      <use xlink:href="#useGoogle" />
+  </svg> -->
+  </svg>
+  <!-- icon整理 [End]  -->
+
+  <!-- Navbar [Begin]-->
+  <nav class="navbar navbar-dark bg-dark sticky-top navbar-inner" style="--bs-bg-opacity: .8;">
+    <div class="container-fluid">
+      <a class="navbar-brand Yunxing-navbarText" href="#">Tony Stock</a>
+      <div><i class="fa-solid fa-2x fa-sack-dollar fa-bounce Yunxing-fa-bounce" style="color: #ffffff;"></i></div>
+      <i class="fa-solid fa-2x fa-bars Yunxiang-navigation-btn" data-bs-toggle="offcanvas" data-bs-target="#navTop"
+        aria-controls="navTop"></i>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="navTop" style="width: 300px;">
+        <div class="offcanvas-header">
+          <button type="button" class="ms-auto Yunxing-btn-circl" data-bs-dismiss="offcanvas">X</button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end align-items-end flex-grow-1 pe-3">
+            <li>
+              <h6>Markets</h6>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Stocks</a>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Funds</a>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">ETFs</a>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Bonds</a>
+            </li>
+            <li>
+              <hr>
+              <h6>INVESTING IDEAS</h6>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Best Investments</a>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Christine Benz’s Portfolios</a>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Best Companies to Own</a>
+            </li>
+            <li>
+              <hr>
+              <h6>TOPICS</h6>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Portfolio Construction</a>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Economy</a>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Sustainable Investing</a>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Personal Finance</a>
+            </li>
+            <li>
+              <hr>
+              <h6>MEDIA</h6>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Podcasts</a>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Free Email Newsletters</a>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Morningstar Magazine</a>
+            </li>
+            <li class="nav-item Yunxiang-nav-link">
+              <a class="nav-link" href="#">Videos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar [End]-->
+
+  <!-- 六張圖卡 [Begin]  -->
+  <div class="container-fluid">
+
+    <div class="row d-flex justify-content-between ">
+      <!-- 特斯拉 -->
+      <div class="col-12 col-sm-6  col-lg-4 col-xxl-2 d-flex justify-content-center ">
+        <div class="py-3">
+          <div style="display: flex; ">
+            <div class="animated-box in p-0">
+              <div class="card " style="width: 100%; border: transparent; background: transparent;">
+                <div class="card-img-top " style="width: 100%;">
+                  <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                    id="tesla" class="card-img-top" style="padding: 25%">
+                    <use xlink:href="#usetesla" />
+                  </svg>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title" style="color: white;">Tesla</h1>
+                  <h4 class="card-text" style="color: red;">Buyer Market</h4>
+                  <a href="#" class="btn btn-danger mb-3 " style="width: 150px; ">+ 17.5%</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 微軟 -->
+      <div class="col-12 col-sm-6  col-lg-4  col-xxl-2 d-flex justify-content-center ">
+        <div class="py-3">
+          <div style="display: flex; ">
+            <div class="animated-box in p-0">
+              <div class="card " style="width: 100%; border: transparent; background: transparent;">
+                <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24" id="windows"
+                  class="card-img-top" style="padding: 25%">
+                  <use xlink:href=" #usewindows" />
+                </svg>
+
+                <div class="card-body">
+                  <h1 class="card-title" style="color: white;">Microsoft</h1>
+                  <h4 class="card-text" style="color: red;">Buyer Market</h4>
+                  <a href="#" class="btn btn-danger mb-3 " style="width: 150px; ">+ 13.5%</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 蘋果 -->
+      <div class="col-12 col-sm-6  col-lg-4 col-xxl-2 d-flex justify-content-center ">
+        <div class="py-3">
+          <div style="display: flex;">
+            <div class="animated-box in p-0">
+              <div class="card " style="width: 100%; border: transparent; background: transparent;">
+                <div class="card-img-top">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496.255 608.728" id="apple" class="card-img-top"
+                    style="padding: 15% 25% 23% 25%">
+                    <use xlink:href="#useapple" />
+                  </svg>
+                </div>
+
+                <div class="card-body">
+                  <h1 class="card-title" style="color: white;">Apple</h1>
+                  <h4 class="card-text" style="color: red;">Buyer Market</h4>
+                  <a href="#" class="btn btn-danger mb-3 " style="width: 150px; ">+ 7.1%</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 英特爾 -->
+      <div class="col-12 col-sm-6  col-lg-4 col-xxl-2 d-flex justify-content-center ">
+        <div class="py-3">
+          <div style="display: flex;">
+            <div class="animated-box in p-0">
+              <div class="card " style="width: 100%; border: transparent; background: transparent;">
+                <div class="card-img-top">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 569.579 375.614" id="intel" class="card-img-top"
+                    style="padding: 35% 25% 31% 25%">
+                    <use xlink:href="#useintel" />
+                  </svg>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title" style="color: white;">Intel</h1>
+                  <h4 class="card-text" style="color: rgb(29, 175, 41);">Seller market</h4>
+                  <a href="#" class="btn btn-success mb-3 " style="width: 150px; ">- 9.4%</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 輝達 -->
+      <div class="col-12 col-sm-6  col-lg-4 col-xxl-2 d-flex justify-content-center ">
+        <div class="py-3">
+          <div style="display: flex;">
+            <div class="animated-box in p-0">
+              <div class="card " style="width: 100%; border: transparent; background: transparent;">
+                <div class="card-img-top">
+                  <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                    id="nvidia" style="padding: 25%" class="card-img-top">
+                    <use xlink:href="#useNvidia" />
+                  </svg>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title" style="color: white;">Nvidia</h1>
+                  <h4 class="card-text" style="color: rgb(29, 175, 41);">Seller market</h4>
+                  <a href="#" class="btn btn-success mb-3 " style="width: 150px; ">- 11.4%</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google -->
+      <div class="col-12 col-sm-6  col-lg-4 col-xxl-2 d-flex justify-content-center ">
+        <div class="py-3">
+          <div style="display: flex;">
+            <div class="animated-box in p-0">
+              <div class="card " style="width: 100%; border: transparent; background: transparent;">
+                <div class="card-img-top">
+                  <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 262"
+                    id="google" style="padding: 25%" class="card-img-top">
+                    <use xlink:href="#useGoogle" />
+                  </svg>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title" style="color: white;">Google</h1>
+                  <h4 class="card-text" style="color: rgb(29, 175, 41);">Seller market</h4>
+                  <a href="#" class="btn btn-success mb-3 " style="width: 150px; ">- 14.7%</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 六張圖卡 [End]  -->
+
+  <!-- 內容 -->
+  <div class="container-xxl" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="row gx-5 gy-3" style="background: transparent;">
+      <div class="col-12 col-lg-7 col-xl-8">
+        <div class="p-4 rounded-2 shadow-sm">
+          <!-- 內文按鈕導覽列 [Begin]-->
+          <div class=" row" style="font-family: 'Titillium Web', sans-serif;">
+            <button type="button" class="btn btn-outline-success mb-4 Yunxiang-btn-opacity col-3">Markets</button>
+            <button type="button" class="btn btn-outline-danger mb-4 Yunxiang-btn-opacity col-3">Stocks</button>
+            <button type="button" class="btn btn-outline-warning mb-4 Yunxiang-btn-opacity col-3">Funds</button>
+            <button type="button" class="btn btn-outline-info mb-4 Yunxiang-btn-opacity col-3">ETFs</button>
+          </div>
+          <!-- 內文按鈕導覽列 [End]-->
+
+          <!-- 文章 -->
+          <div id="carousel" class="carousel slide mb-2" data-bs-ride="carousel" data-bs-theme="dark">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="img-fluid"
+                  src="https://media.cnn.com/api/v1/images/stellar/prod/230522161223-01-biden-mccarthy-debt-talk-0522.jpg?c=16x9&q=h_720,w_1280,c_fill/f_webp"
+                  alt="">
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://s.yimg.com/uu/api/res/1.2/_PuldSo1mYJdM5LvttVMkA--~B/aD0xNzc1O3c9MzE2MTthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2023-03/f356cfe0-d7a2-11ed-bc7d-b0c993bc495e"
+                  class="img-fluid" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://ichef.bbci.co.uk/news/976/cpsprodpb/D676/production/_116220945_gettyimages-1213764552.jpg"
+                  class="img-fluid" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- 主標題 -->
+          <div class="login-box" id="article" style="color: white; font-family: 'Titillium Web', sans-serif;">
+            <form>
+              <a href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Don’t expect the stock markets to rejoice about the debt ceiling deal !
+              </a>
+            </form>
+          </div>
+          <!-- 內文  -->
+          <div style="white-space: pre-line; color: white; font-family: 'Titillium Web', sans-serif;">
+            New York CNN —
+            You’d expect the stock market to surge after the White House and House Republicans reached a tentative deal
+            to raise the debt ceiling, but markets may have other plans.
+            <img src="https://uc.udn.com.tw/photo/2023/03/28/2/20877043.jpg" alt=""
+              class="img-thumbnail float-end ms-3 clearfix w-50 w-lg-25">
+            he stock market, for the most part, has been ignoring the serious risks associated with the United States
+            defaulting on its debt. Even if Congress passes a bill to raise the debt ceiling and President Joe Biden
+            signs it, it could take months before stocks and other financial markets move on.
+
+            “One of the concerns I have is that even in the run-up to an agreement, when one does occur, there can be
+            substantial financial market distress,” Treasury Secretary Janet Yellen said last week.
+
+            “We’re seeing just the beginnings of it,” she said, referring to stock and bond market volatility in recent
+            days.
+            <div class="login-box2" id="article"
+              style="color: white; font-family: 'Titillium Web', sans-serif; white-space: normal;">
+              <form>
+                <a href="#">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  A look back at the 2011 debt ceiling crisis Could history repeat itself?
+                </a>
+              </form>
+            </div>
+            “It wouldn’t be surprising if the 2011 pattern repeats again,” said George Mateyo, chief investment officer
+            at Key Private Bank.
+
+            While he doesn’t expect a major credit agency to downgrade US debt before or after a deal to raise the debt
+            ceiling is reached, he said the current standoff could lead to a big loss of confidence in America’s
+            financial system.
+
+            That’s why he’s anticipating monthslong market volatility even once a deal is reached.
+            “Just because we get the debt limit raised, we’re not out of the woods,” Mateyo told CNN.
+            <div>
+              <figure>
+                <blockquote class="blockquote"
+                  style="white-space: pre-line; color: white; font-family: 'Titillium Web', sans-serif;">
+                  This willcreate more competition for equity from investors,
+                  said Michael Reynolds, vice president of investment strategy at Glenmede.
+                  After weighing their options,
+                  manyinvestors may find the returns from investing in US Treasuries better than stocks.
+                  suck some liquidityout of the stock market, he said.</blockquote>
+                <figcaption class="blockquote-footer"><cite title="May 18 Version">CNN</cite>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 右側邊欄 -->
+      <div class="col-12 col-lg-5 col-xl-4">
+        <div class="row gx-5 gy-3 gy-lg-4">
+          <!-- Latest News -->
+          <div class="col-12">
+            <div class=" p-4 rounded-2 shadow-sm">
+              <h2 class="border-bottom pb-2 border-primary border-3 fs-4 text-primary mb-4" style="text-align: center;">
+                <p style="display: none;" class="topp"></p>
+                <a href="https://en.wikipedia.org/wiki/Blue" class="nenoBlue topp" style="font-size: 2em;">
+                  Latest News
+                </a>
+              </h2>
+              <div class="d-flex flex-column-reverse">
+                <div class="p-3 mb-3 rounded-2 shadow-sm d-flex position-relative border border-5 border-info"
+                  style="height: 150px; color: white;">
+                  <div class="d-flex flex-column">
+                    <div class="mb-auto">President Recep Tayyip Erdogan leads a country.</div>
+                    <span class="d-block  fs-7">958views</span>
+                    <span class="d-block  fs-7">2023/5/29</span>
+                  </div>
+                  <div class="h-100 " style="aspect-ratio: 1 / 1;">
+                    <img src="https://images.cnbctv18.com/wp-content/uploads/2022/07/July-27-contributors2-1019x573.png"
+                      alt="" class="w-100 h-100 object-fit-cover rounded-2">
+                  </div>
+                  <div
+                    class="position-absolute top-0 start-0 translate-middle circle text-bg-light d-flex justify-content-center align-items-center rounded-circle">
+                    III</div>
+                </div>
+                <div
+                  class="p-3 mb-3  rounded-2 border border-5 border-info shadow-sm d-flex flex-column justify-content-between position-relative"
+                  style="height: 150px ;color: white;">
+                  <div>It’s also deeply significant for many parts of the world beyond Turkey’s borders.</div>
+                  <div>
+                    <span class="d-block  fs-7">1037views</span>
+                    <span class="d-block  fs-7">2023/5/29</span>
+                  </div>
+                  <div
+                    class="position-absolute top-0 start-0 translate-middle circle text-bg-light d-flex justify-content-center align-items-center rounded-circle">
+                    II</div>
+                </div>
+                <div class="p-3 mb-3  rounded-2  position-relative border border-5 border-info" style="color: white;">
+                  Turkey’s historical election is highly consequential for its population of 85 million, in terms of the
+                  future .
+                  <span class="d-block fs-7 mt-3">2023/5/29</span>
+                  <div
+                    class="position-absolute top-0 start-0 translate-middle circle text-bg-light d-flex justify-content-center align-items-center rounded-circle">
+                    I</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Article Categorization -->
+          <div class="col-12">
+            <div class=" p-4 rounded-2 " style="background: transparent;">
+              <h2 class="border-bottom pb-2 border-primary border-3 fs-4 text-primary mb-4" style="text-align: center;">
+                <p style="display: none;" class="topp"></p>
+                <a href="https://en.wikipedia.org/wiki/Blue" class="nenoBlue topp" style="font-size: 2em;">
+                  Article Class
+                </a>
+              </h2>
+              <ul class="list-group">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center border border-1 border-danger"
+                  style="background: transparent;color: white; font-family: 'Titillium Web', sans-serif;">
+                  BUSINESS
+                  <span class="badge rounded-pill" style="background-color: red;">173</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center border border-1 border-danger"
+                  style="background: transparent;color: white; font-family: 'Titillium Web', sans-serif;">
+                  INVESTING
+                  <span class="badge rounded-pill" style="background-color: rgb(231, 97, 97);">21</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center border border-1 border-danger"
+                  style="background: transparent; color: white; font-family: 'Titillium Web', sans-serif;">
+                  TECH
+                  <span class="badge bg-danger rounded-pill" style="background-color: rgb(235, 32, 32);">53</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- About me -->
+          <div class="col-12">
+            <div class=" p-4 rounded-2 shadow-sm" style="background: transparent;">
+              <h2 class="border-bottom pb-2 border-primary border-3 fs-4 text-primary mb-4" style="text-align: center;">
+                <p style="display: none;" class="topp"></p>
+                <a href="https://en.wikipedia.org/wiki/Blue" class="nenoBlue topp" style="font-size: 2em;">
+                  About Me
+                </a>
+              </h2>
+              <div class="vstack align-items-center">
+                <div class="rounded-circle avatar bg-secondary mb-2 overflow-hidden">
+                  <img
+                    src="./bigshow.jpg"
+                    alt="" class="w-100 h-100 object-fit-cover">
+                </div>
+                <h2 class="fs-4 text-primary mt-2" style="text-align: center;">
+                  <p style="display: none;" class="topp"></p>
+                  <a href="https://en.wikipedia.org/wiki/Blue" class="nenoBlue topp"
+                    style="font-size: 1.3em; font-family: 'Titillium Web', sans-serif;">
+                    AYUN
+                  </a>
+                </h2>
+                <div class=" badge rounded-pill text-bg-primary mb-2 mt-2" style="color: white;">Front-End Engineer
+                </div>
+              </div>
+              <dl class="row g-0 mb-0 mt-2"
+                style="color: white; justify-content: center; font-family: 'Titillium Web', sans-serif;">
+                <dt class=" col-12" style="text-align: center;">TEL : 0930-750-289</dt>
+                <dt class="col-12" style="text-align: center;">Email : yunxiangwang777@gmail.com</dt>
+              </dl>
+            </div>
+          </div>
+          <!-- 吐司 -->
+          <div class="col-12 d-flex" style="justify-content: center;">
+            <button type="button" class="btn btn-primary" id="liveToastBtn">Message</button>
+
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+              <div id="liveToast" class="toast" role="alert" style="background: transparent;">
+                <div class="toast-header" style="background: transparent;">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8D-G0b8ka5kyWMioBDY98SOJCYt8Xy7kklA&usqp=CAU"
+                    class="rounded me-2" style="width: 50px;">
+                  <strong class="me-auto" style="color: white;">Yunxiang</strong>
+                  <small style="color: white;">1 hours ago</small>
+                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body" style="background: transparent;color: white;">
+                  Hi~ I am your father.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container my-5">
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white" style="background: transparent;">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Links -->
+        <section class="">
+          <div class="row">
+            <hr class="w-100 clearfix d-md-none" />
+          </div>
+        </section>
+        <hr class="my-3">
+
+        <section class="p-3 pt-0">
+          <div class="row d-flex align-items-center">
+            <div class="col-md-7 col-lg-8 text-center text-md-start">
+              <div class="p-3">
+                © 2023 Copyright:
+                <a class="text-white">Yunxiang.com</a>
+              </div>
+            </div>
+            <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+              <!-- Facebook -->
+              <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i
+                  class="fab fa-facebook-f"></i></a>
+
+              <!-- Twitter -->
+              <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i
+                  class="fab fa-twitter"></i></a>
+
+              <!-- Google -->
+              <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i
+                  class="fab fa-google"></i></a>
+
+              <!-- Instagram -->
+              <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i
+                  class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <!-- Footer -->
+  </div>
+  <script src="./bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script>
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('liveToast')
+
+    if (toastTrigger) {
+      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+      toastTrigger.addEventListener('click', () => {
+        toastBootstrap.show()
+      })
+    }
+  </script>
+
+</body>
+
+</html>
